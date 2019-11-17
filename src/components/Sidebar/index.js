@@ -3,12 +3,18 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import routes from '../../routes'
 import './index.sass'
+import { FaBookmark } from 'react-icons/fa'
 
 const Sidebar = ({ visible }) => {
   return (
     visible && (
       <aside>
-        <div className="sidebar-title">My React App</div>
+        <div className="sidebar-title">
+          <span className="title-icon">
+            <FaBookmark />
+          </span>
+          <span className="title-text">My React App</span>
+        </div>
         <nav className="sidebar-navigation">
           {routes
             .filter(route => route.visible)

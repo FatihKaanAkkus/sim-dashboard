@@ -1,13 +1,13 @@
 @import '../../assets/styles/variables.sass'
 
 $SidebarItemPads: 8px
-$SidebarBgColor: #025952
-$TitleBgColor: #1AAA94
-$TitleTextColor: #FFCB85
-$TitleHrLineColor: #FFCB85
-$NavItemTextColor: #f5f5f5
-$NavItemActiveBgColor: #455E6B  
-$NavItemActiveTextColor: $NavItemTextColor
+$SidebarBgColor: 	#23272a
+$TitleBgColor: #F24E29
+$TitleTextColor: #EAF2DF
+$TitleHrLineColor: #EAF2DF
+$NavItemTextColor: #EAF2DF
+$NavItemActiveBgColor: #84D9C9
+$NavItemActiveTextColor: #23272a
 
 aside
   overflow: hidden
@@ -22,6 +22,16 @@ aside
     color: $TitleTextColor
     font-weight: 700
     text-transform: uppercase
+    text-align: center
+    @media #{$md}
+      text-align: left
+    .title-icon
+      @media #{$md}
+        margin-right: 4px
+    .title-text
+      display: none
+      @media #{$md}
+        display: inline
   nav
     display: flex
     flex-direction: column
@@ -30,14 +40,20 @@ aside
       text-decoration: none
       padding: #{$SidebarItemPads}
       color: $NavItemTextColor
+      font-size: .9rem
+      text-align: center
+      @media #{$md}
+        text-align: left
       &:hover
         background-color: $NavItemActiveBgColor
+        color: $NavItemActiveTextColor
       &.active
         color: $NavItemActiveTextColor
         background-color: $NavItemActiveBgColor
       & > .route-icon
-        margin-right: 4px
         vertical-align: middle
+        @media #{$md}
+          margin-right: 4px
       & > .route-title
         display: none
         @media #{$md}
