@@ -1,6 +1,19 @@
 {
   "name": "sim-dashboard",
+  "productName": "sim-dashboard",
   "version": "0.1.0",
+  "description": "Sim Dashboard by BHQ",
+  "author": {
+    "name": "Fatih Kaan AKKUS",
+    "email": "fatih@fthkn.com",
+    "url": "http://fthkn.com/"
+  },
+  "license": "UNLICENSED",
+  "homepage": "http://fthkn.com/",
+  "keywords": [
+    "sim-dashboard"
+  ],
+  "icon": "public/logo192.png",
   "private": true,
   "dependencies": {
     "connected-react-router": "^6.5.2",
@@ -22,7 +35,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pack-lin32": "electron-packager . sim-dashboard --overwrite --asar --platform=linux --arch=ia32 --icon=public/app.png --prune=true --out=dist",
+    "pack-lin64": "electron-packager . sim-dashboard --overwrite --asar --platform=linux --arch=x64 --icon=public/app.png --prune=true --out=dist",
+    "pack-win64": "electron-packager . sim-dashboard --overwrite --asar --platform=win32 --arch=x64 --icon=public/app.png --prune=true --out=dist",
+    "pack-armv7l": "electron-packager . sim-dashboard --overwrite --asar --platform=linux --arch=armv7l --icon=public/app.png --prune=true --out=dist",
+    "dist-deb32": "electron-installer-debian --src dist/sim-dashboard-linux-ia32/ --arch i386 --dest dist/installer",
+    "dist-deb64": "electron-installer-debian --src dist/sim-dashboard-linux-x64/ --arch amd64 --dest dist/installer",
+    "dist-win64": "electron-installer-windows --src dist/sim-dashboard-win32-x64/ --dest dist/installer/",
+    "electron-dev": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000/ && SVGA_VGPU10=0 NODE_ENV=dev electron .\"",
+    "electron-nginx": "electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +62,9 @@
     ]
   },
   "devDependencies": {
+    "electron": "^7.1.4",
+    "electron-packager": "^14.1.1",
     "prettier": "^1.19.1"
-  }
+  },
+  "main": "electron.js"
 }
