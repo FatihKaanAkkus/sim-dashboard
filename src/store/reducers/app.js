@@ -1,5 +1,5 @@
 const initialState = {
-  isSplash: true
+  isSplash: false
 }
 
 const reducer = (state = initialState, action) => {
