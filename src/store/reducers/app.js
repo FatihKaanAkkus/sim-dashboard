@@ -1,5 +1,6 @@
 const initialState = {
-  isSplash: false
+  isSplash: false,
+  sidebarVisible: true
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,6 +10,9 @@ const reducer = (state = initialState, action) => {
       break
     case 'HIDE_SPLASH':
       state = { ...state, isSplash: false }
+      break
+    case 'TOGGLE_SIDEBAR':
+      state = { ...state, sidebarVisible: !state.sidebarVisible }
       break
     default:
       break

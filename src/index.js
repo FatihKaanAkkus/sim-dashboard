@@ -14,10 +14,15 @@ import Routing from './components/Routing'
 import Sidebar from './components/Sidebar'
 // Utils
 import WebSocket from './utils/websocket'
+// Actions
+import { registerKeyboardShortcuts } from './store/actions/app'
+
 new WebSocket()
 
 class App extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    registerKeyboardShortcuts()
+  }
 
   render() {
     const { isSplash } = this.props
@@ -27,7 +32,7 @@ class App extends Component {
           <Splash />
         ) : (
           <Main>
-            <Sidebar visible={true} />
+            <Sidebar />
             <Routing />
           </Main>
         )}

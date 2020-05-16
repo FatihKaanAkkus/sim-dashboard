@@ -55,4 +55,6 @@ const Sidebar = ({ visible }) => {
   )
 }
 
-export default connect(state => state.app)(Sidebar)
+export default connect(state => {
+  return { visible: state.app.sidebarVisible }
+})(Sidebar)
