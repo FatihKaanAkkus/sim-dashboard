@@ -13,11 +13,11 @@ import Splash from './containers/Splash'
 import Routing from './components/Routing'
 import Sidebar from './components/Sidebar'
 // Utils
-import WebSocket from './utils/websocket'
+// import WebSocket from './utils/websocket'
 // Actions
 import { registerKeyboardShortcuts } from './store/actions/app'
 
-new WebSocket()
+// new WebSocket()
 
 class App extends Component {
   componentDidMount() {

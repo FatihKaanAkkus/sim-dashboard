@@ -12,7 +12,7 @@ class SceneViewer extends Component {
 
   componentDidMount = () => {
     try {
-      this.viewer = new ViewerUtil({ container: 'viewer' })
+      this.viewer = new ViewerUtil({ container: 'viewer', enableStats: true })
       setSceneRef(this.viewer)
       resizeToFit()
     } catch (error) {
