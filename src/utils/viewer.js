@@ -262,6 +262,15 @@ class Viewer {
     let xynormal = new THREE.Vector3(0, 0, 1).normalize()
     let axis = new THREE.Vector3().crossVectors(normal, xynormal).normalize()
     let angle = normal.angleTo(xynormal)
+
+    if (axis.x < 1e-6 && axis.y < 1e-6 && axis.z < 1e-6) {
+      if (angle > Math.PI / 2) {
+        axis.set(0, 0, -1)
+      } else {
+        axis.set(0, 0, 1)
+      }
+    }
+
     let quaternion = new THREE.Quaternion().setFromAxisAngle(axis, angle)
     let quaternionBack = new THREE.Quaternion().copy(quaternion).inverse()
 
